@@ -153,6 +153,25 @@ RCT_EXPORT_METHOD(animateTo:(nonnull NSNumber *)reactTag params:(NSDictionary *)
 }
 
 - (void)mapViewRegionChanged:(AMapView *)mapView {
+  
+    MAMapStatus  *statu =[mapView getMapStatus];
+    CGFloat width = mapView.bounds.size.width;    //375
+    CGFloat height = mapView.bounds.size.height;  //
+    CGRect rect = mapView.bounds;
+    CGSize size = mapView.bounds.size;
+  
+    if(width>700){
+    //    [mapView setBounds:CGRectMake(0,0,404,375)];
+    //    [self sendEventWithName:@"EventReminder" body:@{@"name": eventName}];
+        if (mapView.onViewError) {
+        MAMapStatus *status = mapView.getMapStatus;
+        mapView.onViewError(@{
+                    @"viewWidth": @(width),
+                    @"viewHeight": @(height)
+                });
+        }
+    }
+
     if (mapView.onStatusChange) {
         MAMapStatus *status = mapView.getMapStatus;
         mapView.onStatusChange(@{
