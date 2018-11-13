@@ -50,6 +50,8 @@ RCT_EXPORT_VIEW_PROPERTY(onLocation, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onStatusChange, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onStatusChangeComplete, RCTBubblingEventBlock)
 
+RCT_EXPORT_VIEW_PROPERTY(onViewError, RCTBubblingEventBlock)
+
 RCT_EXPORT_METHOD(animateTo:(nonnull NSNumber *)reactTag params:(NSDictionary *)params duration:(NSInteger)duration) {
     [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, UIView *> *viewRegistry) {
         AMapView *mapView = (AMapView *) viewRegistry[reactTag];
