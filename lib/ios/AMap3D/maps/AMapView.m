@@ -4,6 +4,9 @@
 #import "AMapPolyline.h"
 #import "LocationStyle.h"
 
+#import <MAMapKit/MAMapKit.h>
+#import <AMapFoundationKit/AMapFoundationKit.h>
+
 #pragma ide diagnostic ignored "OCUnusedMethodInspection"
 
 @implementation AMapView {
@@ -14,6 +17,12 @@
 - (instancetype)init {
     _markers = [NSMutableDictionary new];
     self = [super init];
+
+    NSString *path = @"../mapStyle/mapStyle.data";
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    [self setCustomMapStyleWithWebData:data];
+    [self setCustomMapStyleEnabled:YES];
+
     return self;
 }
 
