@@ -18,7 +18,7 @@
     _markers = [NSMutableDictionary new];
     self = [super init];
 
-    NSString *path = @"../mapStyle/mapStyle.data";
+    NSString *path = [NSString stringWithFormat:@"%@/mapStyle.data", [NSBundle mainBundle].bundlePath];
     NSData *data = [NSData dataWithContentsOfFile:path];
     [self setCustomMapStyleWithWebData:data];
     [self setCustomMapStyleEnabled:YES];
