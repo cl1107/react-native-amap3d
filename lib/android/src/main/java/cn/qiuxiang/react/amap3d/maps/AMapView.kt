@@ -104,6 +104,8 @@ class AMapView(context: Context) : TextureMapView(context) {
         }
 
         map.setInfoWindowAdapter(AMapInfoWindowAdapter(context, markers))
+        map.setCustomMapStylePath(Environment.getExternalStorageDirectory().absolutePath+"/amap_style/style.data")
+        map.setMapCustomEnable(true);
     }
 
     fun emitCameraChangeEvent(event: String, position: CameraPosition?) {
